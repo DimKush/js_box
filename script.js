@@ -23,20 +23,9 @@ outputWarning("cAr", compareAge,carYear);
 ////////////////
 // drop vowels
 
-function reverseString(str){
-    console.log("basic string : ", str);
-    
-    var chr = undefined;
-    for(var i = 0, j = str.length; i <= str.length && j >= 0; i++, j--){
-        chr = str.indexOf(i);
-        str.charAt(i) = str.charAt(j)
-        str.charAt(j) = chr;
-    }
-
-    console.log("reversed string", str);
-}
-
-
 var str = new String("String value");
 
-reverseString(str);
+
+var sbstr = new String(str.substr(0, 5));
+
+console.log(sbstr);
