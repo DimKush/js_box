@@ -2,12 +2,12 @@ let personName = 'Peter';
 
 var message = 'Hi \''+ personName + '\'';
 
-console.log(message);
+//arrow function 
+let getSquare = (num) => num * num;
 
-function pp(){
-    let val = 'Simple';
-    console.log(personName);
-    console.log(val);
-}
 
-// console.log(val);
+let arr = [10,230,23];
+let arr2 = new Array(12,23,44,55);
+
+const res =  getSquare(5);
+console.log(res);
