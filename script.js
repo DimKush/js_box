@@ -1,4 +1,4 @@
-var personName = 'Peter';
+let personName = 'Peter';
 
 var message = 'Hi \''+ personName + '\'';
 
