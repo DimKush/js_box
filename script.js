@@ -30,6 +30,11 @@ const funcDetectArr = (arr) => {
     return arrRes;
 }
 
+const duplicateArr = (arr) =>{
+    let arrIn = arr;
+    return arrIn.concat(arrIn);
+}
 
 const res =  getSquare(5);
-console.log(funcDetectArr(arrGlob));
+//console.log(funcDetectArr(arrGlob));
+console.log(duplicateArr(arrGlob));
