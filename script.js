@@ -1,4 +1,4 @@
-let personName = 'Peter';
+const personName = 'Peter';
 
 var message = 'Hi \''+ personName + '\'';
 
@@ -72,6 +72,29 @@ const swapFirstToLast = (arr) =>{
 
     return [...rest, first];
 }; 
+
+const getSpecialNums = (arr, num) => {
+    if(!Array.isArray(arr)) {
+        return undefined;
+    } else if(!Number.isInteger(num)){
+        return undefined;
+    }
+
+    let arrRes = [];
+    arr.forEach(element => {
+        if(element % num === 0){
+            arrRes.push(element);
+        }
+    });
+
+    return arrRes;
+
+}
+
+console.log("getSpecialNums + ", getSpecialNums(nums, 3));
+console.log("getSpecialNums + ", getSpecialNums(nums, 2));
+
+
 
 nums = swapFirstToLast(nums);
 
