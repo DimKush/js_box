@@ -94,8 +94,18 @@ const getSpecialNums = (arr, num) => {
 console.log("getSpecialNums + ", getSpecialNums(nums, 3));
 console.log("getSpecialNums + ", getSpecialNums(nums, 2));
 
-
-
 nums = swapFirstToLast(nums);
 
 console.log(nums);
+
+const unsortedArr = [155,2,45,0,30,233,10,55,60,8];
+const sortArr = arr => {
+    if(!Array.isArray(unsortedArr)){
+        return undefined;
+    }
+
+    return arr.slice().sort((a,b) => a - b); 
+}
+
+console.log("sortArr : ", sortArr(unsortedArr));
+console.log("unsortedArr : ", unsortedArr);
