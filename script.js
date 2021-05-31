@@ -109,3 +109,17 @@ const sortArr = arr => {
 
 console.log("sortArr : ", sortArr(unsortedArr));
 console.log("unsortedArr : ", unsortedArr);
+
+
+// [1, [12,34,56,3],10, [23,24,21] ]
+const arrInsideArr = [1, [12,34,56,3],10, [23,24,21]];
+
+const flatArray = arr =>{
+    const flatArray = arr.reduce((acc, elem) =>{
+        return acc.concat(elem);
+    },[]);
+
+    return flatArray;
+};
+
+console.log(flatArray(arrInsideArr));
