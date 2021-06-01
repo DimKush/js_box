@@ -123,3 +123,16 @@ const flatArray = arr =>{
 };
 
 console.log(flatArray(arrInsideArr));
+
+const getMessageForPassedStudents = (allStudents, failedStudents) => {
+    const passedStudents = allStudents
+    .filter(name => !failedStudents.includes(name))
+    .map(name => "Good job, " + name);
+
+    return passedStudents;
+}
+
+const allStudents = ["Ann", "Tom", "Bob", "Kate", "Dim"];
+const failedStudents = ["Tom", "Bob","Dim"];
+
+console.log(getMessageForPassedStudents(allStudents, failedStudents));
