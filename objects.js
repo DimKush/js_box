@@ -77,4 +77,12 @@ const modifyArraysTypes = arr => {
 
 console.log(modifyArraysTypes(arrMod));
 
-console.log(0.1+0.2)
+
+
+const multiRound = num => 
+[Math.round(num), Math.floor(num), Math.ceil(num), Math.trunc(num)];
+
+console.log(multiRound(-2.4));
+console.log(multiRound(2.4));
+console.log(Math.round(Math.PI * 1000) / 1000 );
+console.log(+Math.PI.toFixed(3));
