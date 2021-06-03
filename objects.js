@@ -96,3 +96,14 @@ const getMaxAbsoluteNum = arr => {
 
 
 console.log(getMaxAbsoluteNum(arrMod));
+
+
+
+// work with strings
+
+let text = "text is wow!";
+const message = 'The text is ${text.toUpperCase()}\nval';
+
+console.log(message);
+text[0] = 'N';
+console.log(text[0])
