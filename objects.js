@@ -69,7 +69,7 @@ const soloUser ={
 
 soloUser.checkIsAdult();
 
-const arrMod = ['12.2','22.3','10.22',234]
+const arrMod = [-12.2,-22.3,-10.22,-234]
 const modifyArraysTypes = arr => {
     return arr
     .map(el => Number.parseFloat(el));
@@ -86,3 +86,13 @@ console.log(multiRound(-2.4));
 console.log(multiRound(2.4));
 console.log(Math.round(Math.PI * 1000) / 1000 );
 console.log(+Math.PI.toFixed(3));
+
+
+const getMaxAbsoluteNum = arr => {
+    const absNums = arr
+    .map(num => Math.abs(num));
+    return Math.max(...absNums);
+};
+
+
+console.log(getMaxAbsoluteNum(arrMod));
