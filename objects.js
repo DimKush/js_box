@@ -55,5 +55,26 @@ const getAdults = users =>{
     return filteredUsersArr;
 };
 
-
 console.log(getAdults(users));
+
+const soloUser ={
+    name: "Tom",
+    age: 18,
+    checkIsAdult : function() {
+        if(this.age >= 18){
+            console.log(this.name + " is adult");
+        }
+    },
+};
+
+soloUser.checkIsAdult();
+
+const arrMod = ['12.2','22.3','10.22',234]
+const modifyArraysTypes = arr => {
+    return arr
+    .map(el => Number.parseFloat(el));
+};
+
+console.log(modifyArraysTypes(arrMod));
+
+console.log(0.1+0.2)
