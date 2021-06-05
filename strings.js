@@ -10,6 +10,10 @@ const contacts = [
         phoneNumber: "555-55-55",
     },
     {
+        name: "Sam",
+        phoneNumber: "555-55-54",
+    },
+    {
         name: "Billy",
         phoneNumber: "434-55-66"
     },
@@ -28,10 +32,27 @@ const contacts = [
 ]
 
 const sortContactsByName = contacts => {
-    return contacts.sort(function(a,b){
-        return a.name > b.name ? 1 : -1;
+    return contacts.sort(function (a, b) {
+        return a.name.localeCompare(b.name);
     });
 }
 
 console.log(sortContactsByName(contacts));
 
+
+const sortContactsByNumbers = contacts => {
+    return contacts.sort(function (obj1, obj2) {
+        let splitNumObj1 = obj1.phoneNumber.split('-');
+        let splitNumObj2 = obj2.phoneNumber.split('-');
+
+        for(let i = 0; i < splitNumObj1.length; i++){
+            if(splitNumObj1[i] > splitNumObj2[i]){
+                return 1;
+            } else if (splitNumObj1[i] < splitNumObj2[i]) {
+                return -1
+            }
+        }
+    });
+}
+
+console.log(sortContactsByNumbers(contacts));
