@@ -65,3 +65,41 @@ const sortContactsByNumbers = contacts => {
 }
 
 console.log(sortContactsByNumbers(contacts));
+
+
+// simple calculator '1 + 2 => 1 + 2 = 3'
+
+const simpleCalculator = expression => {
+    let [a, operator, b] = expression.split(' ');
+    let result = 0;
+    
+    switch(operator){
+        case "+" : {
+            result = Number(a) + +b;
+            break;
+        }
+        case "-" : {
+            result = a - b;
+            break;
+        }
+        case "*" : {
+            result = a * b;
+            break;
+        }
+        case "/" : {
+            result = a / b;
+            break;
+        }
+        default:
+            result = undefined;
+    }
+
+    return `${expression} = ${result}`; 
+}
+
+
+
+console.log(simpleCalculator('1 + 3'));
+console.log(simpleCalculator('10 * 3'));
+console.log(simpleCalculator('1 - 3'));
+console.log(simpleCalculator('10 / 2'));
