@@ -1,6 +1,6 @@
 // sortContacts
 
-const contacts = [
+ const contacts = [
     {
         name: "Tom",
         phoneNumber: "666-66-66",
@@ -66,10 +66,9 @@ const sortContactsByNumbers = contacts => {
 
 console.log(sortContactsByNumbers(contacts));
 
-
 // simple calculator '1 + 2 => 1 + 2 = 3'
 
-const simpleCalculator = expression => {
+export const simpleCalculator = expression => {
     let [a, operator, b] = expression.split(' ');
     let result = 0;
     
@@ -78,7 +77,7 @@ const simpleCalculator = expression => {
             result = Number(a) + +b;
             break;
         }
-        case "-" : {
+        case "-" : { 
             result = a - b;
             break;
         }
@@ -99,7 +98,8 @@ const simpleCalculator = expression => {
 
 
 
-console.log(simpleCalculator('1 + 3'));
-console.log(simpleCalculator('10 * 3'));
-console.log(simpleCalculator('1 - 3'));
-console.log(simpleCalculator('10 / 2'));
+//console.log(simpleCalculator('1 + 3'));
+//console.log(simpleCalculator('10 * 3'));
+//console.log(simpleCalculator('1 - 3'));
+//console.log(simpleCalculator('10 / 2'));
+
