@@ -31,3 +31,9 @@ secondMessanger.setMessage(`secondMessanger to ${namePerson}`);
 
 messanger.sendMessage();
 secondMessanger.sendMessage();
+
+
+const makeCounter = () =>{};
+
+const counter1 = makeCounter();
+const counter2 = makeCounter();
