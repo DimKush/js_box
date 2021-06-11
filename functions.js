@@ -50,8 +50,6 @@ console.log(counter2());
 console.log(counter2());
 
 function sendMessage(name){
-    let greeting = 'Hi ';
-
     if (name) {
         let greeting = 'Greet,';
         console.log(`${greeting} ${name}`)
@@ -64,3 +62,6 @@ function sendMessage(name){
 sendMessage("Tom");
 sendMessage();
 
+for(let i = 0 ; i  <10 ; i++){
+    console.log(i);
+}
