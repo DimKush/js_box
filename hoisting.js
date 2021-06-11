@@ -28,3 +28,24 @@ if(b){
 
 fo();
 console.log(b);
+
+
+var arr = [];
+for (var i = 0 ; i < 10 ; i ++){
+	arr[i] = function(){
+		return i;
+	}
+}
+
+
+console.log(arr[0]());
+
+var arrSec = [];
+for (let i = 0 ; i < 10 ; i ++){
+	arrSec[i] = function(){
+		return i;
+	}
+}
+
+
+console.log(arrSec[0]());
