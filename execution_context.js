@@ -15,6 +15,7 @@ user.walk = function() {
 user.walk();
 user.sayMessage(`simple words`);
 
-const f = user.sayMessage(`f`);
+const func = user.sayMessage.bind(user, `bind simple`);
+// . bind();
 
-f();
+func();
