@@ -39,4 +39,27 @@ const callbackPrompt = {
 	}
 };
 
-callbackPrompt.showDeferredPromt(100);
+//callbackPrompt.showDeferredPromt(100);
+
+//defer(func, ms) => func from object
+
+function defer (func, timeout) {
+	return function(){
+		setTimeout(() => func.call(this,...arguments), timeout);
+	}
+}
+
+const sumCount = (a, b) =>  {
+	console.log(a + b);
+};
+ 
+const userDefer ={
+	name: 'Tom',
+	sayHi(){
+		console.log(`My name is ${this.name}`);
+	},
+}
+
+const deferFuncs = defer(userDefer.sayHi,1000);
+
+deferFuncs.call({ name: 'Bob'});
