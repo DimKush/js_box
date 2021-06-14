@@ -27,3 +27,16 @@ func();
 funcSec.call({name: "Bob", age : 23});
 
 funcThird.apply({ name: "Kate", age : 24 }, ["Message from apply"]);
+
+const callbackPrompt = {
+	message: "Tell me your number",
+	showPrompt(){
+		const phoneNumber = prompt(this.message);
+		console.log(`${this.message} : ${phoneNumber}`);
+	},
+	showDeferredPromt(ms){
+		setTimeout(this.showPrompt.bind(this), ms);
+	}
+};
+
+callbackPrompt.showDeferredPromt(100);
