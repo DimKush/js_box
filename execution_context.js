@@ -1,4 +1,4 @@
-
+'use strict';
 
 // const user = {
 // 	name : "Tom",
@@ -64,14 +64,15 @@
 
 // deferFuncs.call({ name: 'Bob'});
 
-const obj = {
+const user = {
 	name: `Tom`,
 	sayHi(){
 		console.log(this);
 	},
 };
 
-obj.sayHi();
+setTimeout(() => user.sayHi(), 1000);
+
 
 console.log(globalThis === window);
 
@@ -79,3 +80,4 @@ var a = 10;
 let b = 20;
 console.log(window.a);
 console.log(window.b);
+
