@@ -100,3 +100,34 @@ const event = {
 
 console.log(event.sendInvitations());
 
+//
+
+console.log(Math.max.apply(null, [1,42,33]));
+
+const wallet = {
+	transactions:[1,5,87,337,3],
+	getMaxTransaction(){
+		return Math.max(...this.transactions);
+	},
+	getMinTransaction(){
+		return Math.min(...this.transactions);
+	},
+};
+
+console.log(wallet.getMaxTransaction());
+console.log(wallet.getMinTransaction());
+
+//pseudo arrays
+
+function func() {
+	console.log(arguments);
+}
+
+function argsSum() {
+	return [...arguments].reduce((acc,elem) => {
+		return acc + elem;
+	}, 0);	
+}
+
+func(1,23,45,55);
+console.log(argsSum(1,2,3,4));
