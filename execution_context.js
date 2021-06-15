@@ -81,3 +81,22 @@ let b = 20;
 console.log(window.a);
 console.log(window.b);
 
+
+const event = {
+	guests: [
+		{ name : "Tom", email: "tom@gmail.com", age: 17},
+		{ name : "Bob", email: "bob@gmail.com", age: 24}
+	],
+	message: "Welcome to the party.",
+	sendInvitations() {
+		return this.guests
+			.filter(( { age } ) => age >= 18)
+			.map(({name, email}) => ({
+				text: `Hi, ${name}. ${this.message}`,
+				email
+			}));
+	},
+};
+
+console.log(event.sendInvitations());
+
