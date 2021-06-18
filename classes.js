@@ -36,3 +36,40 @@ let us1 = new User("Tom", 10);
 us1.Age = 32;
 
 us1.sayHi();
+
+console.log(us1);
+console.log(us1.Name);
+
+//heritage
+
+class Vehicle{
+	constructor(name, hasWheels){
+		this.name = name;
+		this.hasWheels = hasWheels;
+	}
+	hasWheels = null;
+	name =  null;
+
+	move(){
+		console.log(`${this.name} is moving.`);
+	}
+	stop(){
+		console.log(`${this.name} stopped.`);
+	}
+}
+
+class Ship extends Vehicle {
+	
+	
+	liftAnchorUpAndMove(){
+		console.log(`${this.name} lifted anchor.`);
+		this.move();
+	}
+	liftAnchorDownAndStop(){
+		console.log(`${this.name} downed anchor.`);
+		this.move();
+	}
+}
+
+let ship1 = new Ship(`Mars`, false);
+console.log(ship1);
