@@ -59,8 +59,9 @@ class Vehicle{
 }
 
 class Ship extends Vehicle {
-	
-	
+	constructor(name){
+		super(name, false);
+	}
 	liftAnchorUpAndMove(){
 		console.log(`${this.name} lifted anchor.`);
 		this.move();
@@ -71,5 +72,5 @@ class Ship extends Vehicle {
 	}
 }
 
-let ship1 = new Ship(`Mars`, false);
+let ship1 = new Ship(`Mars`);
 console.log(ship1);
