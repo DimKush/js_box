@@ -1,18 +1,19 @@
 
 'use strict'
 
-localStorage.setItem("name", "Thomas");
-localStorage.setItem("name", "Bill");
 
-localStorage.setItem("fruits",["Apple","Pine","Cherry"]);
-
-localStorage.setItem("persons",[{name : "Tom"},{name : "Bob"}, {name : "Kate"}]);
-
-localStorage.setItem("person",JSON.stringify({name : "Tom"}));
+localStorage.setItem("person",JSON.stringify({name : 'Tom'}));
+localStorage.setItem("age",JSON.stringify(18));
+localStorage.setItem("name","Bob");
 
 console.log(localStorage.getItem("persons"));	
 console.log(localStorage.getItem("name"));
-console.log(localStorage.getItem("person"));
+
+let person = JSON.parse(localStorage.getItem("person"));
+console.log(person);
+
+console.log();
+
 
 //serialization
 
@@ -38,3 +39,23 @@ let jsonAsString = JSON.stringify(user);
 let jsonObject = JSON.parse(jsonAsString);
 console.log(jsonAsString);
 console.log(jsonObject);
+
+// get local storage Data
+const getLocalStorageData = () =>{
+	return Object.entries(localStorage)
+		.reduce((acc, [key,value]) => {
+			let val;
+			try{
+				val = JSON.parse(value);
+			} catch(e){
+				val = value;
+			}
+			return {
+				...acc,
+				[key]: val,
+			};
+
+		}, {});
+};
+
+console.log(getLocalStorageData());
