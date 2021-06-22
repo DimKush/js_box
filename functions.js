@@ -65,3 +65,36 @@ sendMessage();
 for(let i = 0 ; i  <10 ; i++){
     console.log(i);
 }
+
+// chain 
+
+const calc = initVal => {
+    let countVal = initVal;
+    const calculator = {
+        add(val){
+            countVal += val;
+            return this;
+        },
+        mult(val){
+            countVal *= val;
+            return this;
+        },
+        substract(val){
+            countVal -= val;
+            return this;
+        },
+        div(val){
+            countVal /= val;
+            return this;
+        },
+        result(){
+            return countVal;
+        }
+    };
+
+    return calculator;
+};
+
+const res = calc(3).add(2).mult(4).div(10).substract(5).result(); // -3
+
+console.log(res);
