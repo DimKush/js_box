@@ -146,3 +146,17 @@ const sum = a => b => a+b;
 const add = sum(3);
 const add2 = add(7);
 console.log(add2);
+
+
+const add_3 = val => val + 3;
+const multi_2 = val => val * 2;
+const div_4 = val => val / 4;
+
+// composition
+const compose = (...funcs)=> value => {
+    return funcs.reduce((acc, func) => func(acc), value);
+}
+
+const doActions = compose(add_3,multi_2,div_4,);
+
+console.log(doActions(3));
