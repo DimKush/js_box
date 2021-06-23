@@ -98,3 +98,44 @@ const calc = initVal => {
 const res = calc(3).add(2).mult(4).div(10).substract(5).result(); // -3
 
 console.log(res);
+
+
+
+// recursion
+const favorites = ["id-6", "id-17"];
+const tree = {
+    id: "id-1",
+    name: "Products",
+    nodes: [
+        {
+            id: "id-2",
+            name: "Food",
+            nodes: [
+                {
+                    id: "id-6",
+                    name: "Drinks",
+                    nodes:[]
+                }
+            ]
+        },
+        {
+            id: "id-17",
+            name: "Vehicles",
+            nodes:[],
+        }
+    ],
+};
+
+const markFavorites = (tree, favorites) => {
+    const isFavorite = favorites.includes(tree.id);
+
+    return {
+        ...tree,
+        isFavorite,
+        nodes: tree.nodes.map(childNode => markFavorites(childNode,favorites)),
+    };
+};
+
+const markedFavorites = markFavorites(tree, favorites);
+console.log(markedFavorites);
+console.log(JSON.stringify(markedFavorites));
