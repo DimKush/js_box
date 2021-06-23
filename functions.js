@@ -139,3 +139,10 @@ const markFavorites = (tree, favorites) => {
 const markedFavorites = markFavorites(tree, favorites);
 console.log(markedFavorites);
 console.log(JSON.stringify(markedFavorites));
+
+//corr
+const sum = a => b => a+b;
+
+const add = sum(3);
+const add2 = add(7);
+console.log(add2);
