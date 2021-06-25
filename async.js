@@ -1,18 +1,24 @@
-//	'use strict'
+'use strict'
+
+const pinger = (num, period) =>{
+	let i = num;
+	console.log('ping');
+	const interval = setInterval(() => {
+		if(i > 0)
+			console.log('ping');
+		else{
+			clearInterval(interval);
+		}
+	}, period);
+}
 
 const buttonElement = document.querySelector('#button');
 
 buttonElement.addEventListener('click', () =>{
-	
-	let sum = 0;
-	console.log("click");
-	const startTime = new Date();
-	for(let i = 0 ; i < 5e9; i++){
-		sum += i;
-	}
-	const endTime = new Date();
-	console.log(`Process time is ${startTime - endTime}ms`);
+	pinger(5,1000);
 }); 
+
+
 
 const addImage = (imgPath,callback) => {
 	const imgElement = document.createElement('img');
@@ -40,3 +46,14 @@ const onImageLoaded = ({width,height})=> {
 };
 
 addImage(imgPathOrig,onImageLoaded);
+
+// ALL ASYNC code runs AFTER sync
+const main = () => {
+	console.log('1');
+	setTimeout(() => console.log('2'), 1001);
+	console.log('3');
+	setTimeout(() => console.log('4'), 1000);
+	console.log('5');
+}
+
+main();
