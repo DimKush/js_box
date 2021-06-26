@@ -24,6 +24,10 @@ const addImageWithPromise = imgPath => {
 
 const imgPathOrig = `https://free4kwallpapers.com/uploads/originals/2020/03/30/cyberpunk-wallpaper.jpg`;
 
-const prmObj = addImageWithPromise(imgPathOrig);
+const resultPromise = addImageWithPromise(imgPathOrig);
 
-console.log(prmObj);
+resultPromise.then(({width,height}) => 
+	 console.log({width, height})
+);
+
+resultPromise.catch(error => console.log(error));
