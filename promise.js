@@ -31,3 +31,34 @@ resultPromise.then(({width,height}) =>
 );
 
 resultPromise.catch(error => console.log(error));
+
+
+const requestUserDate = userId => {
+	if(userId === 'broken'){
+		const request = new Promise((resolve,reject) => {
+			setTimeout(() => {
+				reject(new Error(`Cannot read userId : ${userId}. userId is incorrect.`));
+			}, 500);});
+			return request;
+	} 
+	else {
+		const request = new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve({
+					name: "John",
+					age: 17,
+					email: `${userId}@gmail.com`,
+					userId,
+				});
+			}, 1000);
+		});
+		return request;
+	}
+};
+
+requestUserDate('user-1')
+	.then(data => console.log(data));
+
+requestUserDate('broken')
+	.catch(error => console.log(error));
+
