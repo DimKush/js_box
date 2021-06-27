@@ -60,5 +60,13 @@ requestUserDate('user-1')
 	.then(data => console.log(data));
 
 requestUserDate('broken')
-	.catch(error => console.log(error));
+	.catch(error => {
+		console.log(error);
+		return 1;
+	})
+	.then(data => console.log(data))
+	.finally(() => console.log(`finally`));
+	
+requestUserDate('user-1')
+	.finally(() => console.log("finally"));
 
