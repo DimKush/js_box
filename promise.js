@@ -70,3 +70,22 @@ requestUserDate('broken')
 requestUserDate('user-1')
 	.finally(() => console.log("finally"));
 
+
+// asyncCalc
+
+const asyncCalc = value =>  new Promise((resolve) => {
+		setTimeout(() => {
+			console.log(`Init value ${value}`);
+			resolve(value);
+		}, 3000);
+	})
+	.then(value =>  new Promise((resolve) => {
+			setTimeout(() => {
+				let res = value * value;
+				console.log(`Squared value ${res}`);
+				resolve(res);
+			}, 3000);
+	}))
+	.then(data => {data *= data; return data; })
+
+asyncCalc(10).then(data => console.log(data));
