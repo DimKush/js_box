@@ -89,3 +89,20 @@ const asyncCalc = value =>  new Promise((resolve) => {
 	.then(data => {data *= data; return data; })
 
 asyncCalc(10).then(data => console.log(data));
+
+
+//AsyncSum(asyncNum1,asyncNum2 ...)
+
+
+const resProm = Promise.resolve(10);
+
+console.log(resProm);
+
+const getValueWithDealy = (value, delay) => new Promise(resolve =>{
+	setTimeout(() => {
+		resolve(value);
+	},delay);
+});
+
+getValueWithDealy(56, 1000)
+	.then(value => console.log(value));
