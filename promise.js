@@ -105,18 +105,15 @@ const getValueWithDealy = (value, delay) => new Promise(resolve =>{
 	},delay);
 });
 
-const asyncNum1 = getValueWithDealy(56, 1000);
-const asyncNum2 = getValueWithDealy(4,2000);
-const asyncNum3 = getValueWithDealy(10,2000);
-
 const getSum = nums =>
-	nums.reduce((acc, num) => acc+ num, 0);
+	nums
+	.filter(value => !isNaN(value))
+	.reduce((acc, num) => Number(acc)+ Number(num), 0);
 
 const asyncSum = (...asyncNums) => {
 	return Promise.all(asyncNums) // wait for done promises
 		.then(numbers => getSum(numbers));
-	
 };
 
-asyncSum(asyncNum1,asyncNum2,asyncNum3)
-	.then(result => console.log(result));
+asyncSum(getValueWithDealy(56, 1000),getValueWithDealy(4,2000),getValueWithDealy(10,2000),getValueWithDealy('30', 1000),getValueWithDealy(undefined,2000),getValueWithDealy(undefined,2000))
+	.then(result => console.log("result : %d", result));
