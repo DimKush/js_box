@@ -110,10 +110,37 @@ const getSum = nums =>
 	.filter(value => !isNaN(value))
 	.reduce((acc, num) => Number(acc)+ Number(num), 0);
 
+const getSumSettled = numbers =>
+{
+	console.log(numbers);
+	const tmp = numbers
+	.filter(value => value.status === "fulfilled")
+	.filter(value => !isNaN(value.value))
+	.filter(value => value.value != undefined)
+	.reduce((acc, num) => { 
+		console.log("acc.value", acc.value);
+		console.log("num.value", num.value); 
+		console.log("acc.value + Number(num.value);", Number(acc.value) + Number(num.value));
+		return Number(acc.value) + Number(num.value); },0);
+	console.log("tmp :", tmp);
+}
+
 const asyncSum = (...asyncNums) => {
 	return Promise.all(asyncNums) // wait for done promises
 		.then(numbers => getSum(numbers));
 };
 
-asyncSum(getValueWithDealy(56, 1000),getValueWithDealy(4,2000),getValueWithDealy(10,2000),getValueWithDealy('30', 1000),getValueWithDealy(undefined,2000),getValueWithDealy(undefined,2000))
-	.then(result => console.log("result : %d", result));
+const asyncSumSattled = (...asyncNums) => {
+	return Promise.allSettled(asyncNums) // wait for done promises
+		.then(numbers => getSumSettled(numbers));
+};
+
+asyncSum(getValueWithDealy(56, 1000),Promise.reject(new Error("Error asyncSum")),getValueWithDealy(10,2000),getValueWithDealy('30', 1000),getValueWithDealy(undefined,2000),getValueWithDealy(undefined,2000))
+	.then(result => console.log("asyncSum : %d", result));
+
+	asyncSumSattled(getValueWithDealy(56, 1000),getValueWithDealy(10,2000),Promise.reject(new Error("Error asyncSum")),getValueWithDealy(10,2000),getValueWithDealy(undefined,2000))
+	.then(result => console.log("asyncSumSattled : %d", result));
+
+
+
+
