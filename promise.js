@@ -116,13 +116,16 @@ const getSumSettled = numbers =>
 	const tmp = numbers
 	.filter(value => value.status === "fulfilled")
 	.filter(value => !isNaN(value.value))
-	.filter(value => value.value != undefined)
-	.reduce((acc, num) => { 
-		console.log("acc.value", acc.value);
-		console.log("num.value", num.value); 
-		console.log("acc.value + Number(num.value);", Number(acc.value) + Number(num.value));
-		return Number(acc.value) + Number(num.value); },0);
-	console.log("tmp :", tmp);
+	.filter(value => value.value != undefined);
+	console.log(tmp);
+	
+	//stupid solution
+	let res =0;  
+	for (let i = 0 ; i < numbers.length; i++)
+		if(!isNaN(numbers[i]))
+			res += numbers[i].value;
+
+	return res;
 }
 
 const asyncSum = (...asyncNums) => {
